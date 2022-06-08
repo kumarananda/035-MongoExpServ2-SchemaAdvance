@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended : false}));
 // middleware call under a single path localhost:5050/newpath
 app.get('/newpath', authcheck, (req, res, next) => {
     console.log('newpath path is done');
-    next()
+    next() 
 })
 
 // student Route use

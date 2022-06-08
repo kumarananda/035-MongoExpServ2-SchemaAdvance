@@ -1,14 +1,6 @@
-// const fs = require('fs') //file system
-// const  path  = require('path') // 
-// const makeNewId = require('../Utility/function.js')
 const Students = require('../models/studentModel');
 
  
-// //student data modal
-// const student = JSON.parse( fs.readFileSync(path.join(__dirname, '../data/student.json')));
-
-
-
 
 // get all students
 const getAllStudent = async (req, res ) => {
