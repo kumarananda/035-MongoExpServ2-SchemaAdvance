@@ -1,23 +1,39 @@
+const Admin = require('../models/adminModle')
 
 
-
-const getAllAdmin = (req, res) => {
-
-    res.status(200).json(`Get admin is Done`)
+const getAllAdmin = async (req, res) => {
+    let data = await Admin.find()
+    res.status(200).json(data)
 }
-const getSingleAdmin = (req, res) => {
-
-    res.status(200).json(`Get Single admin is Done`)
-}
-
-const createAdmin = (req, res) => {
-
-    res.status(200).json(`Create admin is Done`)
+const getSingleAdmin = async (req, res) => {
+    let singleAdmin = await Admin.findById(req.params.id)
+    res.status(200).json(singleAdmin)
 }
 
-const updateSingleAdmin = (req, res) => {
+const createAdmin = async (req, res) => {
 
-    res.status(200).json(`Update Single admin is Done`)
+    // const {name, cell, email, skill, username, location, password } = req.body;
+    let data = await Admin.create({
+        name : req.body.name,
+        cell : req.body.cell,
+        email : req.body.email,
+        username : req.body.username,
+        skill : req.body.skill,
+        location : req.body.location,
+        password : req.body.password,
+
+    })
+    res.status(200).json({
+        message : `Create admin is Done`
+    })
+}
+
+const updateSingleAdmin = async (req, res) => {
+
+    await Admin.findByIdAndUpdate(req.params.id);
+    res.status(200).json({
+        message : `Update Single admin is Done`
+    })
 }
 
 const deleteSingleAdmin = (req, res) => {
