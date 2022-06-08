@@ -19,13 +19,14 @@ app.use(express.urlencoded({extended : false}));
 // use middleware  >> call globelly
 // app.use(authcheck)
 // middleware call under a single path localhost:5050/newpath
-app.get('/newpath', authcheck, (req, res, next) => {
-    console.log('newpath path is done');
-    next() 
-})
+// app.get('/admin', authcheck, (req, res, next) => {
+//     console.log('newpath path is done');
+//     next() 
+// })
 
 // student Route use
 app.use('/api/students', require('./routes/student.js'));
+app.use('/api/admin', require('./routes/admin.js'));
 
 // add express server lestener with Port 5050
 app.listen(PORT, () => {

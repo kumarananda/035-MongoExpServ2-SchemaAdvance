@@ -12,11 +12,11 @@ const connectMongoDB = async () => {
     try{
 
         let connect = await mongoose.connect(MONGOLINK);
-        console.log(`mongonDB connection set successfully HOST : ${ connect.connection.host }`.yellow);
+        console.log(`mongonDB connection set successfully HOST : ${ connect.connection.host }`.bgGreen .underline);
     }catch(error){
-        console.log(error);
+        console.log(`${error}` .bgRed);
     }
-}
+} 
 
 // exports connection
 module.exports = connectMongoDB;
