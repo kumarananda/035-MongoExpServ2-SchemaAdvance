@@ -6,6 +6,7 @@ const { getAllAdmin,
     updateSingleAdmin, 
     deleteSingleAdmin 
 } = require('../controllers/adminController');
+const { adminLogin } = require('../controllers/authController');
 
 
 
@@ -17,6 +18,7 @@ const { getAllAdmin,
 // router.patch('/:id', updateSingleAdmin);
 // router.delete('/:id', deleteSingleAdmin);
 
+router.post('/login', adminLogin)
 router.route('/').get(getAllAdmin ).post(createAdmin);
 router.route('/:id').put(updateSingleAdmin).patch(updateSingleAdmin).delete(deleteSingleAdmin).get(getSingleAdmin);
 

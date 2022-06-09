@@ -8,4 +8,5 @@ const makeNewId = (obj) => {
     }
     
 }
+
 module.exports = makeNewId;
